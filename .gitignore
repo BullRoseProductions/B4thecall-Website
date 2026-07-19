@@ -1,0 +1,7 @@
+# Raw source screenshots (baked into the pages as data URIs, not deployed)
+IMG_*.PNG
+IMG_*.png
+shot_*.png
+Screenshot*.png
+*.zip
+.DS_Store
