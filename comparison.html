@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where B4C wins — Fire (internal)</title>
+<meta name="description" content="Where B4C wins against station-management software. Internal sales aid.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#080A10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#2E6FC7;--blue-soft:#4E86D6;--t1:#EAEEF5;--t2:#9BA7BC;--t3:#5C6880;--hair:rgba(60,90,150,.18);
+    --card:#0E1220;--yes:#5ec79a;--no:#5C6880;--partial:#e0b34a}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--t1);background:#080A10;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(160deg,#0A0E1A,#080A10)}
+  .wrap{max-width:1040px;margin:0 auto;padding:clamp(24px,5vw,44px)}
+  .top{padding-bottom:8px}
+  .home-link{display:inline-flex;align-items:center;gap:.5em;font-size:.82rem;font-weight:600;color:var(--t2);text-decoration:none}
+  .home-link:hover{color:var(--t1)}
+  .eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-soft);margin:22px 0 10px}
+  h1{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.08;margin:0 0 14px}
+  .sub{color:var(--t2);font-size:1.08rem;max-width:60ch;margin:0 0 8px}
+  .internal{background:rgba(219,165,37,.08);border:1px solid rgba(219,165,37,.28);border-radius:10px;padding:14px 18px;color:#e0b34a;font-size:.9rem;margin:24px 0 8px}
+  .internal strong{color:#f0c84a}
+  .frame{color:var(--t1);font-size:1.2rem;max-width:56ch;margin:32px 0;padding-left:18px;border-left:2px solid rgba(90,130,200,.4);font-family:'Oswald',sans-serif;font-weight:400;line-height:1.35}
+  .frame b{color:var(--blue-soft);font-weight:600}
+
+  /* Hero win block */
+  .wins{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 8px}
+  @media(min-width:720px){.wins{grid-template-columns:1fr 1fr}}
+  .win{background:linear-gradient(160deg,#101a30,#0b1120);border:1px solid rgba(46,111,199,.3);border-left:3px solid var(--blue);border-radius:0 14px 14px 0;padding:22px 24px}
+  .win h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.15rem;color:var(--t1);margin:0 0 6px;letter-spacing:.01em}
+  .win p{color:var(--t2);font-size:.92rem;margin:0 0 12px}
+  .win .vs{font-size:.82rem;color:var(--t3);border-top:1px solid var(--hair);padding-top:10px}
+  .win .vs b{color:var(--partial);font-weight:600}
+  .win .only{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-soft);background:rgba(46,111,199,.12);border:1px solid rgba(90,130,200,.4);border-radius:999px;padding:3px 10px;margin-bottom:12px}
+
+  .tablewrap{overflow-x:auto;margin:14px 0 8px;border:1px solid var(--hair);border-radius:14px}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:.92rem}
+  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);vertical-align:top}
+  thead th{background:#0E1220;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.02em;font-size:.9rem;color:var(--t1)}
+  thead th.b4c{color:var(--blue-soft)}
+  tbody tr:last-child td{border-bottom:none}
+  td.cap{color:var(--t1);font-weight:600;width:34%}
+  td.cap small{display:block;color:var(--t3);font-weight:400;font-size:.8rem;margin-top:2px}
+  col.b4ccol{background:rgba(46,111,199,.07)}
+  .yes{color:var(--yes);font-weight:600}
+  .no{color:var(--no)}
+  .partial{color:var(--partial)}
+  .v{font-size:.82rem;color:var(--partial)}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;font-size:.82rem;color:var(--t2);margin:14px 2px 0}
+  .legend span{display:inline-flex;align-items:center;gap:.45em}
+  .dot{width:9px;height:9px;border-radius:50%}
+
+  .scope{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:22px 26px;margin:34px 0 8px}
+  .scope h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.15rem;color:var(--t1);margin:0 0 8px}
+  .scope p{color:var(--t2);margin:0}
+  .scope b{color:var(--t1)}
+
+  h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.2rem;color:var(--blue-soft);margin:40px 0 8px}
+  p{color:var(--t2);margin:0 0 1rem}
+  .verify-list{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:18px 22px}
+  .verify-list li{margin-bottom:.5rem;color:var(--t2)}
+  .verify-list b{color:var(--t1)}
+  .src{font-size:.82rem;color:var(--t3);margin-top:6px}
+  .src a{color:var(--t2)}
+  footer{border-top:1px solid var(--hair);margin-top:40px;padding-top:24px;text-align:center;font-size:.8rem;color:var(--t3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="home-link" href="/"><span aria-hidden="true">&larr;</span> B4C</a></div>
+  <p class="eyebrow">Internal sales aid — Fire · not linked publicly</p>
+  <h1>Where B4C wins.</h1>
+  <p class="sub">For the chief who asks "how are you different from Station Boss?" — the two-sentence answer, then the proof.</p>
+
+  <div class="internal"><strong>Internal / unlisted.</strong> Set to <code>noindex</code>, not linked from the site. Read the "Verify before you send this" list at the bottom before showing it to anyone.</div>
+
+  <p class="frame">You already have software for the call — dispatch, incident reports, NERIS. <b>B4C is the other half</b>, and it does two things no records platform does.</p>
+
+  <!-- The two wins, front and center -->
+  <div class="wins">
+    <div class="win">
+      <span class="only">B4C only</span>
+      <h3>Tap the truck, not a list</h3>
+      <p>Photo-based apparatus checks on a picture of your actual rig, with a full record of who checked what and when. No rubber-stamping a checklist.</p>
+      <p class="vs">Everyone else: <b>a digital list or form.</b> Station Boss and the enterprise RMS platforms all do apparatus checks as checklists tied to records — not a photo of the truck.</p>
+    </div>
+    <div class="win">
+      <span class="only">B4C only</span>
+      <h3>The software writes it. A person signs it.</h3>
+      <p>AI drafts your minutes, drill plans, and recruitment outreach; a qualified human approves before anything's official.</p>
+      <p class="vs">Everyone else: <b>you still do the writing.</b> Their automation is field validation and expiry alerts — at most report-entry assistance, not drafted-and-approved governance.</p>
+    </div>
+  </div>
+
+  <h2>The readiness &amp; accountability lane</h2>
+  <p>The half B4C plays in — and leads. This is the ground to fight on.</p>
+  <div class="tablewrap">
+    <table>
+      <colgroup><col><col class="b4ccol"><col><col></colgroup>
+      <thead>
+        <tr>
+          <th>What matters to a ready department</th>
+          <th class="b4c">B4C</th>
+          <th>Station Boss</th>
+          <th>Enterprise RMS<br><small style="font-weight:400;color:var(--t3)">ESO · ImageTrend · First Due</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap">Tap-the-truck photo checks<small>The actual rig, not a list</small></td>
+          <td class="yes">Yes</td>
+          <td><span class="no">List only</span></td>
+          <td><span class="no">List only</span></td>
+        </tr>
+        <tr>
+          <td class="cap">Every check stamped: who, what, when<small>Real accountability, no rubber-stamp</small></td>
+          <td class="yes">Yes</td>
+          <td><span class="partial">Basic log</span></td>
+          <td><span class="partial">Basic log</span></td>
+        </tr>
+        <tr>
+          <td class="cap">AI drafts minutes, drills &amp; outreach — human approves<small>Software does the work, a person signs</small></td>
+          <td class="yes">Yes</td>
+          <td><span class="partial">Not marketed <span class="v">◇ verify</span></span></td>
+          <td><span class="no">Report-entry assist only</span></td>
+        </tr>
+        <tr>
+          <td class="cap">Meeting minutes &amp; action items<small>Governance, handled</small></td>
+          <td class="yes">Yes</td>
+          <td><span class="partial">Not found <span class="v">◇ verify</span></span></td>
+          <td><span class="no">Not a focus</span></td>
+        </tr>
+        <tr>
+          <td class="cap">Does some of the work <em>for</em> you<small>Not just a better place to put it</small></td>
+          <td class="yes">Yes</td>
+          <td><span class="no">No — you do the work</span></td>
+          <td><span class="no">No — you do the work</span></td>
+        </tr>
+        <tr>
+          <td class="cap">Public pricing you can hand a board</td>
+          <td class="yes">Yes<br><small style="color:var(--t3)">$1,500–3,000/yr*</small></td>
+          <td><span class="partial">Yes<br><small style="color:var(--t3)">$150–550/mo</small></span></td>
+          <td><span class="no">Quote only</span></td>
+        </tr>
+        <tr>
+          <td class="cap">Built for volunteer &amp; combination departments</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
+          <td><span class="partial">Enterprise-leaning</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--yes)"></span>Does it well</span>
+    <span><span class="dot" style="background:var(--partial)"></span>Partial / unconfirmed</span>
+    <span><span class="dot" style="background:var(--no)"></span>Doesn't / different approach</span>
+    <span>◇ verify = confirm before you print this</span>
+  </div>
+  <p class="src">*B4C pricing is the working draft off the $1,500–3,000/yr range — confirm before sharing.</p>
+
+  <!-- Honest scope, kept OUT of the scored table so it doesn't read as B4C losing -->
+  <div class="scope">
+    <h3>What B4C leaves to your records system — on purpose</h3>
+    <p>Dispatch, incident reports, <b>NERIS</b>, scheduling, and ePCR are the job of your RMS, and B4C doesn't try to replace it. NFIRS retired January 2026 and NERIS is mandatory, so keep whatever you use for that. <b>B4C sits alongside it</b> as the readiness and accountability half — the part that platform doesn't do. If a chief already runs Station Boss, that's fine: B4C isn't the thing they replace, it's the thing they add.</p>
+  </div>
+
+  <h2>The one-line version</h2>
+  <p>"You've got the call covered. B4C handles everything <em>before</em> it — the truck checks your crew actually does, and the minutes and outreach that write themselves with a person signing off. Nobody else does those two." If it turns into a feature-count argument, steer back to the two wins at the top.</p>
+
+  <h2>Verify before you send this</h2>
+  <ul class="verify-list">
+    <li><b>Station Boss — AI drafting:</b> marked "not marketed." Their automation is field validation and expiry alerts, not generative drafting — but that's absence of evidence, not a stated "no." Confirm before printing it.</li>
+    <li><b>Station Boss — governance / minutes / voting:</b> not found across their site. Same caveat — confirm before you claim it.</li>
+    <li><b>B4C pricing:</b> still the draft $1,500–3,000/yr. Lock the real numbers first.</li>
+    <li><b>Enterprise RMS column</b> groups ESO, ImageTrend, and First Due. First Due markets "AI-powered documentation," but as report-entry help — not human-signed minutes/outreach. Don't let a prospect equate the two.</li>
+  </ul>
+
+  <p class="src" style="margin-top:18px">Sources: Station Boss pricing &amp; features (stationboss.net) · USFA NERIS/NFIRS sunset (usfa.fema.gov/nfirs/sunset) · ESO (eso.com/neris) · ImageTrend (imagetrend.com/neris-fire-reporting) · First Due (firstdue.com/products/neris) · StationSmarts (stationsmarts.com). Researched July 2026 — recheck before a big pitch, vendor pages change.</p>
+
+  <footer>Internal sales aid · B4C Fire · built by Big Bull Technology · not linked from b4thecall.com</footer>
+</div>
+</body>
+</html>
