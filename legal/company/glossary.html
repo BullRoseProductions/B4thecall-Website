@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMP-005 — Platform Definitions · B4C Trust Center</title>
+<meta name="description" content="CMP-005 — Platform Definitions. Big Bull Technologies, LLC Trust Center for Before the Call.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   B4C TRUST CENTER
+   Big Bull Technologies, LLC
+   Design direction: a controlled document set, not a marketing page.
+   Palette: B4C blue platform brand.
+   ============================================================ */
+
+:root{
+  /* Surfaces */
+  --ink:        #070A12;
+  --ink-grad:   linear-gradient(168deg,#0A0E1A 0%,#080B14 46%,#06080F 100%);
+  --rail:       #05070D;
+  --panel:      #0D1220;
+  --panel-2:    #111829;
+
+  /* Lines */
+  --rule:       rgba(70,105,170,.18);
+  --rule-2:     rgba(70,105,170,.34);
+
+  /* Brand */
+  --blue:       #2E6FC7;
+  --blue-lit:   #5B9BE8;
+  --blue-wash:  rgba(46,111,199,.10);
+
+  /* Text */
+  --paper:      #EDF1F8;
+  --paper-2:    #98A5BC;
+  --paper-3:    #5C6880;
+
+  /* Type */
+  --display:    "Oswald","Inter",system-ui,sans-serif;
+  --body:       "Inter",system-ui,-apple-system,sans-serif;
+  --mono:       ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+
+  --rail-w:     286px;
+  --r:          10px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important;transition:none !important}
+}
+
+body{
+  margin:0;
+  background:var(--ink);
+  background-image:var(--ink-grad);
+  background-attachment:fixed;
+  color:var(--paper-2);
+  font-family:var(--body);
+  font-size:15.5px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Reading progress ---------- */
+
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:transparent;z-index:60}
+.progress i{display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--blue),var(--blue-lit));transition:width .1s linear}
+
+/* ---------- Skip link ---------- */
+
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--blue);color:#fff;
+  padding:12px 18px;font-weight:600;border-radius:0 0 var(--r) 0}
+.skip:focus{left:0}
+
+/* ============================================================
+   RAIL
+   ============================================================ */
+
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail-w);background:var(--rail);
+  border-right:1px solid var(--rule);display:flex;flex-direction:column;z-index:40}
+
+.rail-head{padding:26px 24px 20px;border-bottom:1px solid var(--rule)}
+
+.wordmark{display:block;font-family:var(--display);font-weight:600;font-size:27px;
+  letter-spacing:.14em;color:var(--paper);line-height:1;text-decoration:none}
+.wordmark span{color:var(--blue)}
+.wordmark:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+
+.wordmark-sub{margin:9px 0 0;font-size:9.5px;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--paper-3)}
+
+.rail-scroll{flex:1;overflow-y:auto;padding:20px 14px 28px;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.rail-scroll::-webkit-scrollbar{width:8px}
+.rail-scroll::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+
+.grp{margin:0 0 22px}
+.grp-label{display:flex;align-items:center;gap:10px;margin:0 0 8px;padding:0 10px;
+  font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-3)}
+.grp-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.doc-link{display:flex;align-items:baseline;gap:10px;padding:7px 10px;border-radius:7px;
+  text-decoration:none;color:var(--paper-2);font-size:13.5px;line-height:1.35;
+  border-left:2px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.doc-link .id{font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--paper-3);
+  flex:none;padding-top:1px}
+.doc-link:hover{background:var(--panel);color:var(--paper)}
+.doc-link:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.doc-link[aria-current="page"]{background:var(--blue-wash);color:var(--paper);
+  border-left-color:var(--blue);font-weight:500}
+.doc-link[aria-current="page"] .id{color:var(--blue-lit)}
+.doc-link.pending{opacity:.42;pointer-events:none}
+
+/* ============================================================
+   SHELL
+   ============================================================ */
+
+.shell{margin-left:var(--rail-w);min-height:100vh;display:flex;flex-direction:column}
+
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;padding:0 40px;height:58px;
+  background:rgba(7,10,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.topbar .entity{font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-3)}
+
+.badge{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;
+  border:1px solid var(--rule-2);border-radius:999px;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--paper-2);font-variant-numeric:tabular-nums}
+.badge b{width:5px;height:5px;border-radius:50%;background:var(--blue-lit)}
+
+/* ============================================================
+   DOCUMENT
+   ============================================================ */
+
+.doc{width:100%;max-width:812px;margin:0 auto;padding:60px 40px 140px}
+
+.eyebrow{margin:0 0 14px;font-size:10.5px;font-weight:700;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--blue-lit)}
+
+.doc h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,5vw,50px);
+  line-height:1.08;letter-spacing:.005em;color:var(--paper);margin:0 0 18px}
+
+.lede{font-size:18px;line-height:1.62;color:var(--paper-2);margin:0 0 6px;max-width:60ch}
+
+/* ---------- Document control ---------- */
+
+.control{margin:38px 0 52px;border:1px solid var(--rule);border-radius:var(--r);
+  background:var(--panel);overflow:hidden}
+.control-bar{display:flex;align-items:center;gap:10px;padding:11px 20px;
+  border-bottom:1px solid var(--rule);background:var(--panel-2);
+  font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--paper-3);margin:0}
+.control-bar::before{content:"";width:16px;height:1px;background:var(--blue)}
+.control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  gap:1px;background:var(--rule);margin:0}
+.control-grid > div{background:var(--panel);padding:15px 20px}
+.control-grid dt{font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-3);margin:0 0 5px}
+.control-grid dd{margin:0;font-size:14px;font-weight:500;color:var(--paper);
+  font-variant-numeric:tabular-nums}
+.control-grid dd.m{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+.note,.doc-note{color:var(--paper-3);font-style:italic;font-weight:400;font-size:12.5px}
+
+/* ---------- Sections ---------- */
+
+.doc section{margin:0;padding:44px 0 0}
+.doc section + section{border-top:1px solid var(--rule);margin-top:44px}
+
+.doc h2{display:flex;align-items:baseline;gap:16px;font-family:var(--display);
+  font-weight:500;font-size:25px;line-height:1.25;color:var(--paper);margin:0 0 18px;
+  scroll-margin-top:92px}
+.doc h2 .n{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;
+  color:var(--blue);flex:none;transform:translateY(-3px);font-variant-numeric:tabular-nums}
+
+.doc h3{font-family:var(--body);font-weight:600;font-size:15px;letter-spacing:.01em;
+  color:var(--paper);margin:26px 0 10px}
+
+.doc p{margin:0 0 16px}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:20px}
+.doc li{margin:0 0 8px}
+.doc li::marker{color:var(--blue)}
+.doc strong{color:var(--paper);font-weight:600}
+
+.doc a{color:var(--blue-lit);text-decoration:none;border-bottom:1px solid rgba(91,155,232,.32)}
+.doc a:hover{border-bottom-color:var(--blue-lit)}
+.doc a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+
+/* ---------- Callout ---------- */
+
+.doc-callout{margin:24px 0;padding:18px 22px;background:var(--blue-wash);
+  border-left:2px solid var(--blue);border-radius:0 var(--r) var(--r) 0}
+.doc-callout p{margin:0;color:var(--paper);font-size:16px}
+
+/* ---------- Example ---------- */
+
+.doc-example{border-left:2px solid var(--rule-2);padding:12px 0 12px 18px;margin:14px 0;
+  font-style:italic;color:var(--paper-2)}
+.doc-example span{display:block;font-style:normal;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-3);font-weight:700;margin-bottom:6px}
+
+/* ---------- Card grids ---------- */
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(244px,1fr));
+  gap:16px;margin:26px 0 28px}
+.doc-grid section{background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r);padding:20px 22px;margin:0;border-top:2px solid var(--rule-2)}
+.doc-grid section + section{border-top:2px solid var(--rule-2);margin-top:0}
+.doc-grid h3{margin-top:0;margin-bottom:10px}
+.doc-grid ul{margin-bottom:0}
+.doc-grid li{font-size:14.5px}
+.doc-grid p{font-size:14.5px}
+
+.doc-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+  gap:16px;margin:26px 0 28px}
+.doc-split section{background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r);padding:20px 22px;margin:0;border-top:2px solid var(--blue)}
+.doc-split section + section{margin-top:0;border-top:2px solid rgba(120,140,175,.4)}
+.doc-split section + section li::marker{color:var(--paper-3)}
+.doc-split h3{margin-top:0}
+.doc-split ul{margin-bottom:0}
+.doc-split li{font-size:14.5px}
+.doc-split p{font-size:14.5px}
+
+/* ---------- Boundary ---------- */
+
+.doc-boundary{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);
+  padding:22px 24px;margin:22px 0 26px}
+.doc-boundary h3{margin-top:0}
+.doc-boundary ul{columns:2;column-gap:34px;margin:0}
+.doc-boundary li::marker{color:var(--paper-3)}
+@media (max-width:620px){.doc-boundary ul{columns:1}}
+
+/* ---------- Numbered principles ---------- */
+
+.doc-principle{display:grid;grid-template-columns:auto 1fr;gap:0 22px;align-items:start;
+  margin:0;padding:0}
+.doc-principle .num{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1;
+  color:var(--blue);font-variant-numeric:tabular-nums;min-width:34px;padding-top:8px;
+  letter-spacing:.06em}
+.doc-principle .body h3{margin-top:0;margin-bottom:10px;font-family:var(--display);
+  font-weight:500;font-size:20px;color:var(--paper)}
+.doc-principle .body > :last-child{margin-bottom:0}
+
+/* ---------- Glossary ---------- */
+
+.doc-index{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 34px;padding:18px 20px;
+  background:var(--panel);border:1px solid var(--rule);border-radius:var(--r)}
+.doc-index a{font-size:12.5px;padding:5px 12px;border:1px solid var(--rule);
+  border-radius:999px;color:var(--paper-2);border-bottom:1px solid var(--rule)}
+.doc-index a:hover{color:var(--paper);border-color:var(--rule-2);border-bottom-color:var(--rule-2)}
+
+.doc-terms{margin:0}
+.doc-terms > div{padding:24px 0;border-bottom:1px solid var(--rule)}
+.doc-terms > div:last-child{border-bottom:none}
+.doc-terms dt{font-family:var(--display);font-size:19px;font-weight:500;color:var(--paper);
+  margin:0 0 8px;scroll-margin-top:92px}
+.doc-terms dd{margin:0}
+.doc-terms dd p{margin:0 0 10px}
+.doc-terms dd > :last-child{margin-bottom:0}
+
+/* ---------- Tables ---------- */
+
+.doc-table{width:100%;border-collapse:collapse;margin:18px 0 4px;font-size:14.5px}
+.doc-table th,.doc-table td{text-align:left;padding:12px 16px;
+  border-bottom:1px solid var(--rule);vertical-align:top}
+.doc-table th{font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-3)}
+.doc-table td{color:var(--paper-2)}
+.doc-table td:first-child{color:var(--paper);font-weight:500}
+.doc-table.nums td:first-child{font-family:var(--mono);font-size:13px;
+  font-variant-numeric:tabular-nums;font-weight:400}
+
+/* ---------- Related documents ---------- */
+
+.rel{list-style:none;padding:0;margin:4px 0 0}
+.rel li{margin:0;border-bottom:1px solid var(--rule)}
+.rel li:last-child{border-bottom:none}
+.rel a,.rel .flat{display:flex;align-items:baseline;gap:14px;padding:12px 4px;
+  border-bottom:none;color:var(--paper-2);font-size:14.5px}
+.rel a:hover{color:var(--paper)}
+.rel .id{font-family:var(--mono);font-size:11px;color:var(--paper-3);flex:none;min-width:62px}
+.rel .flat{color:var(--paper-3)}
+.rel .flat .soon{margin-left:auto;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-3)}
+
+/* ---------- Hub (index) ---------- */
+
+.hub{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:16px;margin:30px 0 8px}
+.hub-card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);
+  padding:22px;text-decoration:none;border-top:2px solid var(--blue);
+  transition:background .16s,border-color .16s;display:block}
+.hub-card:hover{background:var(--panel-2);border-color:var(--rule-2);
+  border-top-color:var(--blue-lit)}
+.hub-card:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.hub-card h3{margin:0 0 8px;font-family:var(--display);font-weight:500;font-size:19px;
+  color:var(--paper)}
+.hub-card p{margin:0 0 12px;font-size:14px;color:var(--paper-2);line-height:1.6}
+.hub-card .ids{font-family:var(--mono);font-size:10.5px;color:var(--paper-3);
+  letter-spacing:.03em;display:block}
+
+/* ============================================================
+   INDEX TAB — section navigator
+   ============================================================ */
+
+.tab{position:fixed;right:0;top:50%;z-index:45;transform:translateY(-50%);
+  display:flex;align-items:center;gap:9px;padding:20px 11px;background:var(--panel-2);
+  border:1px solid var(--rule-2);border-right:none;border-radius:var(--r) 0 0 var(--r);
+  color:var(--paper-2);font-family:var(--body);font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;writing-mode:vertical-rl;cursor:pointer;
+  transition:background .18s,color .18s,padding-right .18s}
+.tab:hover{background:var(--blue);color:#fff;padding-right:15px}
+.tab:focus-visible{outline:2px solid var(--blue-lit);outline-offset:2px}
+.tab svg{transform:rotate(90deg);flex:none}
+
+.nav-panel{position:fixed;right:0;top:0;bottom:0;z-index:55;width:330px;max-width:88vw;
+  background:var(--rail);border-left:1px solid var(--rule-2);transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;
+  box-shadow:-30px 0 60px rgba(0,0,0,.45)}
+.nav-panel.open{transform:translateX(0)}
+
+.np-head{padding:22px 22px 16px;border-bottom:1px solid var(--rule);position:relative}
+.np-kicker{margin:0 0 5px;font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.08em;color:var(--blue-lit)}
+.np-title{margin:0;font-family:var(--display);font-weight:500;font-size:18px;
+  color:var(--paper);line-height:1.3;padding-right:38px}
+.np-close{position:absolute;top:18px;right:18px;width:30px;height:30px;display:grid;
+  place-items:center;background:transparent;border:1px solid var(--rule);border-radius:7px;
+  color:var(--paper-3);cursor:pointer;transition:color .15s,border-color .15s}
+.np-close:hover{color:var(--paper);border-color:var(--rule-2)}
+.np-close:focus-visible{outline:2px solid var(--blue)}
+
+.np-list{flex:1;overflow-y:auto;padding:14px 12px 26px;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.np-list::-webkit-scrollbar{width:8px}
+.np-list::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+
+.np-item{display:flex;align-items:baseline;gap:12px;padding:9px 12px;border-radius:7px;
+  text-decoration:none;color:var(--paper-2);font-size:14px;line-height:1.4;
+  border-left:2px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.np-item .n{font-family:var(--mono);font-size:10.5px;color:var(--paper-3);flex:none;
+  font-variant-numeric:tabular-nums}
+.np-item:hover{background:var(--panel);color:var(--paper)}
+.np-item:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.np-item.here{background:var(--blue-wash);border-left-color:var(--blue);color:var(--paper);
+  font-weight:500}
+.np-item.here .n{color:var(--blue-lit)}
+
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(4,6,11,.6);opacity:0;
+  pointer-events:none;transition:opacity .28s}
+.scrim.on{opacity:1;pointer-events:auto}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+.rail-toggle{display:none;width:34px;height:34px;place-items:center;background:transparent;
+  border:1px solid var(--rule);border-radius:7px;color:var(--paper-2);cursor:pointer}
+.rail-toggle:focus-visible{outline:2px solid var(--blue)}
+
+@media (max-width:1080px){
+  :root{--rail-w:0px}
+  .rail{transform:translateX(-100%);width:286px;
+    transition:transform .28s cubic-bezier(.4,0,.2,1)}
+  .rail.open{transform:translateX(0)}
+  .shell{margin-left:0}
+  .rail-toggle{display:grid}
+  .topbar{padding:0 20px;gap:14px}
+  .topbar .entity{flex:1;font-size:10px}
+  .doc{padding:40px 22px 130px}
+  .tab{top:auto;bottom:22px;right:16px;transform:none;writing-mode:horizontal-tb;
+    border-radius:999px;border-right:1px solid var(--rule-2);padding:11px 18px}
+  .tab:hover{padding-right:18px}
+  .tab svg{transform:none}
+}
+
+@media (max-width:520px){
+  .control-grid{grid-template-columns:1fr 1fr}
+  .doc h2{gap:12px}
+  .doc-principle{grid-template-columns:1fr;gap:6px}
+  .doc-principle .num{padding-top:0}
+}
+
+/* ---------- Print ---------- */
+
+@media print{
+  .rail,.topbar,.tab,.nav-panel,.scrim,.progress,.skip{display:none !important}
+  .shell{margin-left:0}
+  body{background:#fff;color:#111}
+  .doc{max-width:none;padding:0}
+  .doc h1,.doc h2,.doc h3,.doc strong,.control-grid dd{color:#000}
+  .doc a{color:#000;border-bottom:none}
+  .control,.doc-grid section,.doc-split section,.doc-boundary,.doc-callout{
+    border-color:#bbb;background:#fff}
+  .doc section + section{border-color:#ddd}
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to document</a>
+<div class="progress"><i id="bar"></i></div>
+
+<aside class="rail" id="rail">
+  <div class="rail-head">
+    <a href="../index.html" class="wordmark">B4<span>C</span></a>
+    <p class="wordmark-sub">Trust Center</p>
+  </div>
+  <nav class="rail-scroll" aria-label="Document index">
+    <div class="grp">
+      <p class="grp-label">Governance</p>
+      <a class="doc-link" href="../governance/documentation-standards.html"><span class="id">GOV-001</span> Documentation Standards</a>
+    </div>
+    <div class="grp">
+      <p class="grp-label">Company</p>
+      <a class="doc-link" href="../index.html"><span class="id">CMP-001</span> Welcome to the Trust Center</a>
+      <span class="doc-link pending" aria-disabled="true"><span class="id">CMP-002</span> About Big Bull Technologies</span>
+      <a class="doc-link" href="about-b4c.html"><span class="id">CMP-003</span> About Before the Call</a>
+      <a class="doc-link" href="principles.html"><span class="id">CMP-004</span> B4C Principles</a>
+      <a class="doc-link" href="glossary.html" aria-current="page"><span class="id">CMP-005</span> Platform Definitions</a>
+    </div>
+    <div class="grp">
+      <p class="grp-label">Legal</p>
+      <a class="doc-link" href="../legal/terms.html"><span class="id">LEG-001</span> Terms of Service</a>
+      <a class="doc-link" href="../legal/privacy.html"><span class="id">LEG-002</span> Privacy Policy</a>
+      <a class="doc-link" href="../legal/acceptable-use.html"><span class="id">LEG-003</span> Acceptable Use Policy</a>
+      <a class="doc-link" href="../legal/billing-terms.html"><span class="id">LEG-004</span> Billing &amp; Subscription</a>
+      <a class="doc-link" href="../legal/refund-policy.html"><span class="id">LEG-005</span> Refund Policy</a>
+      <a class="doc-link" href="../legal/cookie-policy.html"><span class="id">LEG-006</span> Cookie Policy</a>
+      <a class="doc-link" href="../legal/accessibility.html"><span class="id">LEG-007</span> Accessibility Statement</a>
+      <a class="doc-link" href="../legal/support-policy.html"><span class="id">LEG-008</span> Support Policy</a>
+    </div>
+    <div class="grp">
+      <p class="grp-label">Trust</p>
+      <a class="doc-link" href="../trust/security.html"><span class="id">TRU-001</span> Security Overview</a>
+      <a class="doc-link" href="../trust/responsible-ai.html"><span class="id">TRU-002</span> Responsible AI Policy</a>
+      <a class="doc-link" href="../trust/data-security.html"><span class="id">TRU-003</span> Data Security</a>
+      <a class="doc-link" href="../trust/incident-response.html"><span class="id">TRU-004</span> Incident Response</a>
+    </div>
+    <div class="grp">
+      <p class="grp-label">Data</p>
+      <a class="doc-link" href="../data/data-ownership.html"><span class="id">DAT-001</span> Data Ownership</a>
+      <a class="doc-link" href="../data/data-retention.html"><span class="id">DAT-002</span> Data Retention</a>
+      <a class="doc-link" href="../data/data-export.html"><span class="id">DAT-003</span> Data Export &amp; Portability</a>
+    </div>
+    <div class="grp">
+      <p class="grp-label">Operations</p>
+      <a class="doc-link" href="../operations/service-availability.html"><span class="id">OPS-001</span> Service Availability</a>
+      <span class="doc-link pending" aria-disabled="true"><span class="id">OPS-002</span> Business Continuity</span>
+      <span class="doc-link pending" aria-disabled="true"><span class="id">OPS-003</span> Disaster Recovery</span>
+      <span class="doc-link pending" aria-disabled="true"><span class="id">OPS-004</span> Change Management</span>
+    </div>
+  </nav>
+</aside>
+
+<div class="shell">
+  <header class="topbar">
+    <button class="rail-toggle" id="railBtn" aria-label="Open document index" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+    </button>
+    <span class="entity">Big Bull Technologies, LLC</span>
+    <span class="badge"><b></b> Working draft · v1.0.0</span>
+  </header>
+
+  <main class="doc" id="main">
+    <p class="eyebrow">Company</p>
+    <h1>Platform Definitions</h1>
+    <p class="lede">
+      Commonly used terms throughout the Before the Call Trust Center, defined once so they
+      remain consistent across every document we publish.
+    </p>
+    <div class="control">
+      <p class="control-bar">Document control</p>
+      <dl class="control-grid">
+        <div><dt>Document ID</dt><dd class="m">CMP-005</dd></div>
+        <div><dt>Version</dt><dd class="m">1.0.0</dd></div>
+        <div><dt>Status</dt><dd>Active</dd></div>
+        <div><dt>Classification</dt><dd>Public</dd></div>
+        <div><dt>Owner</dt><dd>Big Bull Technologies, LLC</dd></div>
+        <div><dt>Effective</dt><dd>July 19, 2026 <span class="doc-note">(update upon publication)</span></dd></div>
+        <div><dt>Next review</dt><dd>July 2027</dd></div>
+      </dl>
+    </div>
+    <section>
+      <h2 id="s1"><span class="n">01</span> Purpose</h2>
+<p>
+    This document defines commonly used terms throughout the Before the Call
+    (“B4C”) Trust Center.
+  </p><p>
+    These definitions are intended to provide consistency across all documentation published by
+    Big Bull Technologies. Unless otherwise stated, the terms defined in this document apply
+    throughout the Trust Center.
+  </p><div class="doc-callout">
+<p>
+      Where an executed agreement defines a term differently, the applicable agreement controls.
+    </p>
+</div>
+    </section>
+    <section>
+      <h2 id="s2"><span class="n">02</span> Defined Terms</h2>
+<nav aria-label="Jump to a term" class="doc-index">
+<a href="#administrative-intelligence">Administrative Intelligence</a>
+<a href="#administrative-record">Administrative Record</a>
+<a href="#artificial-intelligence">Artificial Intelligence</a>
+<a href="#authorized-user">Authorized User</a>
+<a href="#before-the-call">Before the Call</a>
+<a href="#big-bull-technologies">Big Bull Technologies</a>
+<a href="#customer">Customer</a>
+<a href="#department">Department</a>
+<a href="#department-administrator">Department Administrator</a>
+<a href="#member">Member</a>
+<a href="#organization">Organization</a>
+<a href="#platform">Platform</a>
+<a href="#records">Records</a>
+<a href="#services">Services</a>
+<a href="#station">Station</a>
+<a href="#trust-center">Trust Center</a>
+<a href="#user">User</a>
+<a href="#vendor">Vendor</a>
+</nav><dl class="doc-terms">
+<div>
+<dt id="administrative-intelligence">Administrative Intelligence</dt>
+<dd>
+<p>
+          Administrative Intelligence refers to the use of artificial intelligence within Before
+          the Call to assist with administrative tasks such as organizing information, drafting
+          documents, summarizing content, generating recommendations, and improving
+          administrative workflows.
+        </p>
+<p>
+          Administrative Intelligence is intended to assist users and does not replace human
+          review, judgment, or decision-making.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="administrative-record">Administrative Record</dt>
+<dd>
+<p>
+          An Administrative Record is information created, uploaded, generated, or maintained
+          within Before the Call for administrative purposes.
+        </p>
+<p>
+          Examples include meeting minutes, attendance records, policies, training
+          documentation, recruitment information, planning documents, and organizational
+          records.
+        </p>
+<p>
+          Administrative Records do not include emergency response records or patient care
+          documentation.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="artificial-intelligence">Artificial Intelligence (AI)</dt>
+<dd>
+<p>
+          Artificial Intelligence (AI) refers to software capabilities that assist users by
+          generating, organizing, summarizing, or analyzing administrative information.
+        </p>
+<p>
+          AI within Before the Call is designed to support administrative productivity and is
+          not intended to make operational, legal, personnel, or emergency response decisions.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="authorized-user">Authorized User</dt>
+<dd>
+<p>
+          An Authorized User is an individual who has been granted permission by a Department
+          Administrator to access Before the Call.
+        </p>
+<p>
+          Authorized Users may include department leadership, officers, administrative
+          personnel, committee members, instructors, or other individuals approved by the
+          Department.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="before-the-call">Before the Call (B4C)</dt>
+<dd>
+<p>
+          Before the Call (“B4C”) is the administrative operations platform
+          developed and operated by Big Bull Technologies.
+        </p>
+<p>
+          The platform is designed to support first responder organizations with administrative
+          operations and organizational management.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="big-bull-technologies">Big Bull Technologies (BBT)</dt>
+<dd>
+<p>
+          Big Bull Technologies, LLC (“BBT”) is the company responsible for
+          developing, operating, maintaining, and supporting Before the Call.
+        </p>
+<p>
+          Unless otherwise specified, references to “we,” “our,” or
+          “us” within Trust Center documentation refer to Big Bull Technologies.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="customer">Customer</dt>
+<dd>
+<p>
+          A Customer is the legal entity, organization, or department that has entered into an
+          agreement to use Before the Call.
+        </p>
+<p>
+          The Customer — not individual users — is generally responsible for
+          managing its B4C account, user access, and organizational settings.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="department">Department</dt>
+<dd>
+<p>A Department is the primary organizational entity within Before the Call.</p>
+<p>
+          Departments represent customer organizations such as volunteer fire departments,
+          combination departments, career fire departments, emergency medical organizations, law
+          enforcement agencies, or other first responder organizations authorized to use the
+          platform.
+        </p>
+<p>
+          Departments may manage one or more stations within a single administrative
+          environment.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="department-administrator">Department Administrator</dt>
+<dd>
+<p>
+          A Department Administrator is an Authorized User who has been granted administrative
+          authority over a Department’s B4C environment.
+        </p>
+<p>
+          Department Administrators are responsible for managing users, permissions, department
+          settings, and other administrative functions within the platform.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="member">Member</dt>
+<dd>
+<p>A Member is an individual associated with a Department.</p>
+<p>
+          Members may include responders, officers, board members, instructors, support
+          personnel, administrative staff, or other individuals recorded within the Department.
+        </p>
+<p>
+          Membership within Before the Call does not imply employment status, certification
+          status, or operational qualifications.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="organization">Organization</dt>
+<dd>
+<p>
+          Organization is a general term referring to a customer entity using Before the Call.
+        </p>
+<p>
+          Within most documentation, Organization and Department may be used interchangeably
+          unless a distinction is specifically identified.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="platform">Platform</dt>
+<dd>
+<p>
+          Platform refers collectively to the Before the Call software, associated services,
+          websites, applications, documentation, and related technology provided by Big Bull
+          Technologies.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="records">Records</dt>
+<dd>
+<p>
+          Records are the information created, uploaded, maintained, or stored by a Department
+          within Before the Call.
+        </p>
+<p>
+          Ownership of Department Records remains with the Customer, subject to applicable
+          agreements and law.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="services">Services</dt>
+<dd>
+<p>
+          Services refers to the software, support, features, and related offerings provided by
+          Big Bull Technologies under the Before the Call platform.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="station">Station</dt>
+<dd>
+<p>A Station is an operational location managed by a Department.</p>
+<p>
+          Stations exist within a Department’s administrative structure and do not function
+          as independent customer organizations.
+        </p>
+<p>Before the Call follows a department-first organizational model.</p>
+</dd>
+</div>
+<div>
+<dt id="trust-center">Trust Center</dt>
+<dd>
+<p>
+          The Trust Center is the collection of official documentation published by Big Bull
+          Technologies describing the operation, governance, security, privacy, legal policies,
+          and administrative principles of Before the Call.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="user">User</dt>
+<dd>
+<p>
+          A User is any individual who accesses Before the Call using credentials issued through
+          a Department.
+        </p>
+<p>
+          All Users are expected to comply with applicable policies, agreements, and
+          organizational requirements.
+        </p>
+</dd>
+</div>
+<div>
+<dt id="vendor">Vendor</dt>
+<dd>
+<p>
+          A Vendor is a third-party organization that provides technology, infrastructure,
+          payment processing, communication services, or other supporting services used by
+          Before the Call.
+        </p>
+<p>
+          Big Bull Technologies evaluates Vendors based on operational needs, security
+          considerations, and business requirements.
+        </p>
+</dd>
+</div>
+</dl>
+    </section>
+    <section>
+      <h2 id="s3"><span class="n">03</span> Interpretation</h2>
+<p>Unless the context clearly requires otherwise:</p><ul>
+<li>Singular words include the plural.</li>
+<li>Plural words include the singular.</li>
+<li>References to “including” mean “including, but not limited to.”</li>
+<li>Section headings are provided for convenience and do not alter interpretation.</li>
+</ul>
+    </section>
+    <section>
+      <h2 id="s4"><span class="n">04</span> Related Documents</h2>
+<ul>
+<li><a href="../governance/documentation-standards.html">GOV-001 — Documentation Standards</a></li>
+<li><a href="../index.html">CMP-001 — Welcome to the Trust Center</a></li>
+<li><a href="#">CMP-002 — About Big Bull Technologies</a></li>
+<li><a href="about-b4c.html">CMP-003 — About Before the Call</a></li>
+<li><a href="principles.html">CMP-004 — B4C Principles</a></li>
+<li><a href="../legal/terms.html">LEG-001 — Terms of Service</a></li>
+<li><a href="../legal/privacy.html">LEG-002 — Privacy Policy</a></li>
+<li><a href="../trust/security.html">TRU-001 — Security Overview</a></li>
+<li><a href="../trust/responsible-ai.html">TRU-002 — Responsible AI Policy</a></li>
+</ul>
+    </section>
+    <section>
+      <h2 id="s5"><span class="n">05</span> Revision History</h2>
+<table class="doc-table">
+<thead>
+<tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Description</th></tr>
+</thead>
+<tbody>
+<tr><td>1.0.0</td><td>July 2026</td><td>Initial publication.</td></tr>
+</tbody>
+</table>
+    </section>
+  </main>
+</div>
+
+<button class="tab" id="tabBtn" aria-controls="navPanel" aria-expanded="false">
+  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 3h9M5 8h9M5 13h9M2 3h.01M2 8h.01M2 13h.01"/></svg>
+  Sections
+</button>
+
+<div class="scrim" id="scrim"></div>
+
+<nav class="nav-panel" id="navPanel" aria-label="Sections in this document" aria-hidden="true">
+  <div class="np-head">
+    <p class="np-kicker">CMP-005</p>
+    <h2 class="np-title">Platform Definitions</h2>
+    <button class="np-close" id="npClose" aria-label="Close sections">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+  </div>
+  <div class="np-list" id="npList"></div>
+</nav>
+
+<script>
+/* ============================================================
+   B4C Trust Center — shared behaviour
+   Section navigator, scroll spy, reading progress, mobile rail.
+   No dependencies.
+   ============================================================ */
+(function(){
+  "use strict";
+
+  var $ = function(s){ return document.querySelector(s); };
+
+  /* ---------- Section navigator ---------- */
+
+  var list   = $('#npList');
+  var panel  = $('#navPanel');
+  var scrim  = $('#scrim');
+  var tabBtn = $('#tabBtn');
+  var closeB = $('#npClose');
+  var items  = [];
+  var heads  = [];
+
+  if(list && panel){
+    heads = Array.prototype.slice.call(
+      document.querySelectorAll('.doc section > h2[id], .doc > h2[id]')
+    );
+
+    heads.forEach(function(h){
+      var num  = h.querySelector('.n');
+      var text = h.textContent.replace(num ? num.textContent : '', '').trim();
+      var a = document.createElement('a');
+      a.className = 'np-item';
+      a.href = '#' + h.id;
+      a.dataset.target = h.id;
+      a.innerHTML = '<span class="n"></span><span class="t"></span>';
+      a.querySelector('.n').textContent = num ? num.textContent : '';
+      a.querySelector('.t').textContent = text;
+      list.appendChild(a);
+    });
+
+    items = Array.prototype.slice.call(list.querySelectorAll('.np-item'));
+
+    var openPanel = function(){
+      panel.classList.add('open');
+      scrim.classList.add('on');
+      panel.setAttribute('aria-hidden','false');
+      tabBtn.setAttribute('aria-expanded','true');
+      var cur = list.querySelector('.np-item.here') || items[0];
+      if(cur){ cur.focus({preventScroll:true}); }
+    };
+
+    var closePanel = function(){
+      panel.classList.remove('open');
+      scrim.classList.remove('on');
+      panel.setAttribute('aria-hidden','true');
+      tabBtn.setAttribute('aria-expanded','false');
+    };
+
+    tabBtn.addEventListener('click', function(){
+      panel.classList.contains('open') ? closePanel() : openPanel();
+    });
+    if(closeB){ closeB.addEventListener('click', closePanel); }
+    if(scrim){ scrim.addEventListener('click', closePanel); }
+    items.forEach(function(a){ a.addEventListener('click', closePanel); });
+
+    /* Scroll spy */
+    if('IntersectionObserver' in window && heads.length){
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(!en.isIntersecting){ return; }
+          items.forEach(function(a){
+            a.classList.toggle('here', a.dataset.target === en.target.id);
+          });
+        });
+      }, { rootMargin:'-88px 0px -68% 0px', threshold:0 });
+      heads.forEach(function(h){ spy.observe(h); });
+    }
+
+    window.__b4cClosePanel = closePanel;
+  }
+
+  /* ---------- Reading progress ---------- */
+
+  var bar = $('#bar');
+  if(bar){
+    var ticking = false;
+    var draw = function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function(){
+      if(!ticking){ window.requestAnimationFrame(draw); ticking = true; }
+    }, {passive:true});
+    window.addEventListener('resize', draw, {passive:true});
+    draw();
+  }
+
+  /* ---------- Mobile rail ---------- */
+
+  var rail    = $('#rail');
+  var railBtn = $('#railBtn');
+  var closeRail = function(){
+    if(!rail){ return; }
+    rail.classList.remove('open');
+    if(railBtn){ railBtn.setAttribute('aria-expanded','false'); }
+  };
+
+  if(rail && railBtn){
+    railBtn.addEventListener('click', function(){
+      var open = rail.classList.toggle('open');
+      railBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    rail.addEventListener('click', function(e){
+      if(e.target.closest('a')){ closeRail(); }
+    });
+  }
+
+  /* ---------- Escape closes everything ---------- */
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      if(window.__b4cClosePanel){ window.__b4cClosePanel(); }
+      closeRail();
+    }
+  });
+
+  /* ---------- Keep the current rail item in view ---------- */
+
+  var cur = document.querySelector('.doc-link[aria-current="page"]');
+  if(cur && cur.scrollIntoView){
+    try { cur.scrollIntoView({block:'center'}); } catch(err){ /* noop */ }
+  }
+
+})();
+
+</script>
+</body>
+</html>

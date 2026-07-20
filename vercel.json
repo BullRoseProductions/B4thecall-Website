@@ -1,4 +1,15 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/privacy", "destination": "/legal/privacy", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/legal/privacy", "destination": "/legal/legal/privacy.html" },
+    { "source": "/legal/terms", "destination": "/legal/legal/terms.html" }
+  ],
+  "headers": [
+    { "source": "/legal", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/legal/:path*", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ]
 }
