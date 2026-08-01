@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>APP-004 — Offline Functionality Policy · B4C Trust Center</title>
-<meta name="description" content="APP-004 — Offline Functionality Policy. How offline functionality works, what is stored locally, and how synchronization occurs.">
+<title>PROC-002 — Third-Party Services & Subprocessors · B4C Trust Center</title>
+<meta name="description" content="PROC-002 — Third-Party Services & Subprocessors. The categories of third-party providers that may process Customer Data on our behalf.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -472,7 +472,7 @@ body{
       <a class="doc-link" href="/legal/mobile-application-permissions"><span class="id">APP-001</span> Mobile App Permissions</a>
       <a class="doc-link" href="/legal/background-location-policy"><span class="id">APP-002</span> Background Location Policy</a>
       <a class="doc-link" href="/legal/push-notification-policy"><span class="id">APP-003</span> Push Notification Policy</a>
-      <a class="doc-link" href="/legal/offline-functionality" aria-current="page"><span class="id">APP-004</span> Offline Functionality</a>
+      <a class="doc-link" href="/legal/offline-functionality"><span class="id">APP-004</span> Offline Functionality</a>
       <a class="doc-link" href="/legal/device-security"><span class="id">APP-005</span> Device Security</a>
     </div>
     <div class="grp">
@@ -488,7 +488,7 @@ body{
     <div class="grp">
       <p class="grp-label">Procurement</p>
       <a class="doc-link" href="/legal/government-public-sector"><span class="id">PROC-001</span> Government &amp; Public Sector</a>
-      <a class="doc-link" href="/legal/subprocessors"><span class="id">PROC-002</span> Third-Party &amp; Subprocessors</a>
+      <a class="doc-link" href="/legal/subprocessors" aria-current="page"><span class="id">PROC-002</span> Third-Party &amp; Subprocessors</a>
       <a class="doc-link" href="/legal/security-compliance-faq"><span class="id">PROC-003</span> Security &amp; Compliance FAQ</a>
     </div>
   </nav>
@@ -504,16 +504,16 @@ body{
   </header>
 
   <main class="doc" id="main">
-    <p class="eyebrow">Application</p>
-    <h1>Offline Functionality Policy</h1>
+    <p class="eyebrow">Procurement</p>
+    <h1>Third-Party Services &amp; Subprocessors</h1>
     <p class="lede">
-      How Before the Call keeps working when connectivity is limited &mdash; what is stored locally,
-      how synchronization occurs, and the limits of offline operation.
+      Transparency about the categories of third-party providers that may process Customer Data on
+      behalf of Big Bull Technologies &mdash; and who our current core providers are.
     </p>
     <div class="control">
       <p class="control-bar">Document control</p>
       <dl class="control-grid">
-        <div><dt>Document ID</dt><dd class="m">APP-004</dd></div>
+        <div><dt>Document ID</dt><dd class="m">PROC-002</dd></div>
         <div><dt>Version</dt><dd class="m">1.0.0</dd></div>
         <div><dt>Status</dt><dd>Active</dd></div>
         <div><dt>Classification</dt><dd>Public</dd></div>
@@ -525,191 +525,78 @@ body{
 
     <section>
       <h2 id="s1"><span class="n">01</span> Purpose</h2>
-      <p>
-        The Before the Call (&ldquo;B4C&rdquo;) mobile application is designed to remain useful even
-        when internet connectivity is limited or temporarily unavailable.
-      </p>
-      <p>
-        This policy explains how offline functionality works, what information may be stored locally
-        on a user&rsquo;s device, how synchronization occurs, and the limitations of offline
-        operation.
-      </p>
+      <p>Before the Call uses carefully selected third-party service providers to support platform functionality, security, reliability, communications, hosting, and software delivery.</p>
+      <p>This document provides transparency regarding the categories of third-party providers that may process Customer Data on behalf of Big Bull Technologies.</p>
     </section>
 
     <section>
       <h2 id="s2"><span class="n">02</span> Our Philosophy</h2>
+      <p>We seek to minimize third-party dependencies while selecting providers that help deliver a secure, reliable, and scalable platform.</p>
+      <p>Third-party providers are evaluated based on factors such as:</p>
+      <ul>
+        <li>Security</li>
+        <li>Reliability</li>
+        <li>Operational maturity</li>
+        <li>Product capabilities</li>
+        <li>Customer value</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="s3"><span class="n">03</span> Categories of Providers</h2>
+      <p>Depending on platform functionality, Before the Call may utilize providers supporting:</p>
+      <ul>
+        <li>Cloud infrastructure</li>
+        <li>Database services</li>
+        <li>Authentication</li>
+        <li>Email delivery</li>
+        <li>Push notifications</li>
+        <li>AI services</li>
+        <li>File storage</li>
+        <li>Monitoring</li>
+        <li>Error reporting</li>
+        <li>Analytics</li>
+        <li>Payment processing</li>
+        <li>Customer support</li>
+        <li>Domain and DNS services</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="s4"><span class="n">04</span> Current Core Platform Providers</h2>
+      <p>At the time of publication, the core platform may utilize services such as:</p>
+      <table class="doc-table">
+        <thead>
+          <tr><th scope="col">Provider</th><th scope="col">Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vercel</td><td>Application hosting</td></tr>
+          <tr><td>Supabase</td><td>Database, authentication, storage</td></tr>
+          <tr><td>GitHub</td><td>Source code management</td></tr>
+          <tr><td>OpenAI</td><td>Administrative Intelligence features</td></tr>
+          <tr><td>Resend</td><td>Transactional email</td></tr>
+        </tbody>
+      </table>
+      <p>As the platform evolves, providers may be added, replaced, or removed.</p>
+    </section>
+
+    <section>
+      <h2 id="s5"><span class="n">05</span> Customer Data</h2>
+      <p>Third-party providers receive only the information reasonably necessary to perform the services for which they are engaged.</p>
       <div class="doc-callout">
-        <p><strong>Administrative work should not stop simply because internet service is unavailable.</strong></p>
-      </div>
-      <p>
-        Whenever reasonably practical, Before the Call is designed to allow Authorized Users to
-        continue working with supported features while offline and automatically synchronize changes
-        once connectivity is restored.
-      </p>
-      <p>Offline functionality is intended to improve reliability &mdash; not replace real-time connectivity.</p>
-    </section>
-
-    <section>
-      <h2 id="s3"><span class="n">03</span> Supported Offline Features</h2>
-      <p>Depending on platform capabilities and Department configuration, offline functionality may include:</p>
-      <ul>
-        <li>Viewing previously synchronized department information</li>
-        <li>Completing assigned station duties</li>
-        <li>Viewing schedules and calendars</li>
-        <li>Reviewing downloaded documents</li>
-        <li>Completing checklists</li>
-        <li>Recording attendance</li>
-        <li>Recording notes</li>
-        <li>Completing inspections</li>
-        <li>Drafting meeting notes</li>
-        <li>Viewing selected training materials</li>
-        <li>Creating administrative records awaiting synchronization</li>
-      </ul>
-      <p>Available offline functionality may expand as the platform evolves.</p>
-    </section>
-
-    <section>
-      <h2 id="s4"><span class="n">04</span> Local Device Storage</h2>
-      <p>
-        To support offline functionality, B4C may temporarily store selected administrative
-        information on the user&rsquo;s device. Examples include:
-      </p>
-      <ul>
-        <li>Recently viewed records</li>
-        <li>Assigned tasks</li>
-        <li>Downloaded documents</li>
-        <li>Pending form submissions</li>
-        <li>Cached department information</li>
-        <li>User preferences</li>
-      </ul>
-      <p>Only the information reasonably necessary to support selected offline features is stored locally.</p>
-    </section>
-
-    <section>
-      <h2 id="s5"><span class="n">05</span> Synchronization</h2>
-      <p>When internet connectivity becomes available, B4C attempts to synchronize eligible information with the platform. Synchronization may include:</p>
-      <ul>
-        <li>New records</li>
-        <li>Updated records</li>
-        <li>Completed tasks</li>
-        <li>Attendance events</li>
-        <li>Inspection results</li>
-        <li>Administrative notes</li>
-        <li>Checklist completion</li>
-        <li>Other supported administrative data</li>
-      </ul>
-      <p>
-        Synchronization timing may vary depending on device settings, network availability, battery
-        optimization, and operating system behavior.
-      </p>
-    </section>
-
-    <section>
-      <h2 id="s6"><span class="n">06</span> Conflict Resolution</h2>
-      <p>Occasionally, the same information may be modified on multiple devices before synchronization occurs.</p>
-      <p>When synchronization conflicts are detected, B4C may:</p>
-      <ul>
-        <li>Preserve both versions for review</li>
-        <li>Prompt the user to resolve the conflict</li>
-        <li>Apply system-defined conflict resolution rules</li>
-        <li>Notify authorized administrators when appropriate</li>
-      </ul>
-      <p>Departments remain responsible for reviewing official administrative records.</p>
-    </section>
-
-    <section>
-      <h2 id="s7"><span class="n">07</span> Location-Based Features</h2>
-      <p>
-        Certain location-based administrative events may continue to be recorded while the device is
-        temporarily offline, subject to operating system capabilities and granted permissions.
-      </p>
-      <p>When connectivity is restored, eligible location events may synchronize with the platform.</p>
-      <p>Offline operation does not guarantee that every location event will be captured or transmitted.</p>
-    </section>
-
-    <section>
-      <h2 id="s8"><span class="n">08</span> Security</h2>
-      <p>
-        Information stored locally is protected using reasonable administrative and technical
-        safeguards appropriate to the operating system and application architecture.
-      </p>
-      <p>Users are encouraged to:</p>
-      <ul>
-        <li>Enable device screen locks</li>
-        <li>Keep operating systems updated</li>
-        <li>Use biometric authentication when available</li>
-        <li>Report lost or stolen devices promptly</li>
-      </ul>
-      <p>Additional information is available in:</p>
-      <ul>
-        <li><a href="/legal/device-security">APP-005 &mdash; Device Security</a></li>
-        <li><a href="/legal/data-security">TRU-003 &mdash; Data Security</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 id="s9"><span class="n">09</span> User Responsibilities</h2>
-      <p>Users are responsible for:</p>
-      <ul>
-        <li>Maintaining secure access to their devices</li>
-        <li>Synchronizing data when connectivity becomes available</li>
-        <li>Reporting synchronization issues</li>
-        <li>Reviewing submitted administrative records</li>
-        <li>Protecting locally stored information</li>
-      </ul>
-      <p>Departments should not rely solely on offline storage as a permanent recordkeeping solution.</p>
-    </section>
-
-    <section>
-      <h2 id="s10"><span class="n">10</span> Limitations</h2>
-      <p>Offline functionality depends on several factors, including:</p>
-      <ul>
-        <li>Device capabilities</li>
-        <li>Operating system behavior</li>
-        <li>Available storage</li>
-        <li>Battery level</li>
-        <li>Department configuration</li>
-        <li>Application version</li>
-      </ul>
-      <p>
-        Some features require an active internet connection and may not be available while offline.
-        Examples may include:
-      </p>
-      <div class="doc-boundary">
-        <h3>Requires a connection</h3>
-        <ul>
-          <li>Authentication requiring online verification</li>
-          <li>Real-time collaboration</li>
-          <li>AI-assisted features</li>
-          <li>Certain administrative reports</li>
-          <li>Payment processing</li>
-          <li>Live system updates</li>
-        </ul>
+        <p><strong>Big Bull Technologies does not authorize subprocessors to use Customer Data for unrelated advertising or independent commercial purposes.</strong></p>
       </div>
     </section>
 
     <section>
-      <h2 id="s11"><span class="n">11</span> Continuous Improvement</h2>
-      <p>
-        Big Bull Technologies continually evaluates opportunities to improve offline functionality by
-        expanding supported features, improving synchronization reliability, and enhancing the overall
-        user experience.
-      </p>
+      <h2 id="s6"><span class="n">06</span> Provider Changes</h2>
+      <p>Big Bull Technologies periodically reviews third-party providers and may introduce new providers when appropriate to improve security, functionality, reliability, or customer experience.</p>
+      <p>This document may be updated to reflect material changes.</p>
     </section>
 
     <section>
-      <h2 id="s12"><span class="n">12</span> Changes to This Policy</h2>
-      <p>Big Bull Technologies may update this Offline Functionality Policy periodically.</p>
-      <p>
-        Material changes will become effective on the published Effective Date after reasonable
-        notice has been provided through the Services, our website, email, or another appropriate
-        communication method.
-      </p>
-    </section>
-
-    <section>
-      <h2 id="s13"><span class="n">13</span> Contact</h2>
-      <p>Questions regarding offline functionality may be directed to Big Bull Technologies.</p>
+      <h2 id="s7"><span class="n">07</span> Questions</h2>
+      <p>Customers with questions regarding subprocessors or third-party providers may contact Big Bull Technologies.</p>
       <p>
         <strong>Big Bull Technologies, LLC</strong><br>
         Email: <a href="mailto:ashlea@bigbulltech.io">ashlea@bigbulltech.io</a>
@@ -717,25 +604,20 @@ body{
     </section>
 
     <section>
-      <h2 id="s14"><span class="n">14</span> Related Documents</h2>
+      <h2 id="s8"><span class="n">08</span> Related Documents</h2>
       <ul>
-        <li><a href="/legal/mobile-application-permissions">APP-001 &mdash; Mobile Application Permissions</a></li>
-        <li><a href="/legal/device-security">APP-005 &mdash; Device Security</a></li>
-        <li><a href="/legal/station-presence-verification">LOC-002 &mdash; Station Presence Verification</a></li>
+        <li><a href="/legal/privacy">LEG-002 &mdash; Privacy Policy</a></li>
+        <li><a href="/legal/data-ownership">DAT-001 &mdash; Data Ownership Policy</a></li>
+        <li><a href="/legal/encryption-data-protection">SEC-004 &mdash; Encryption &amp; Data Protection Policy</a></li>
         <li><a href="/legal/data-security">TRU-003 &mdash; Data Security</a></li>
-        <li><a href="/legal/support-policy">LEG-008 &mdash; Support Policy</a></li>
       </ul>
     </section>
 
     <section>
-      <h2 id="s15"><span class="n">15</span> Revision History</h2>
+      <h2 id="s9"><span class="n">09</span> Revision History</h2>
       <table class="doc-table">
-        <thead>
-          <tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1.0.0</td><td>July 2026</td><td>Initial publication.</td></tr>
-        </tbody>
+        <thead><tr><th scope="col">Version</th><th scope="col">Date</th><th scope="col">Description</th></tr></thead>
+        <tbody><tr><td>1.0.0</td><td>July 2026</td><td>Initial publication.</td></tr></tbody>
       </table>
     </section>
   </main>
@@ -750,8 +632,8 @@ body{
 
 <nav class="nav-panel" id="navPanel" aria-label="Sections in this document" aria-hidden="true">
   <div class="np-head">
-    <p class="np-kicker">APP-004</p>
-    <h2 class="np-title">Offline Functionality Policy</h2>
+    <p class="np-kicker">PROC-002</p>
+    <h2 class="np-title">Third-Party Services &amp; Subprocessors</h2>
     <button class="np-close" id="npClose" aria-label="Close sections">
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
     </button>
