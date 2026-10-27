@@ -37,7 +37,7 @@
   /* Text */
   --paper:      #EDF1F8;
   --paper-2:    #98A5BC;
-  --paper-3:    #5C6880;
+  --paper-3:    #7D8699;
 
   /* Type */
   --display:    "Oswald","Inter",system-ui,sans-serif;
@@ -403,6 +403,9 @@ body{
   .doc section + section{border-color:#ddd}
 }
 
+
+.nav-panel{visibility:hidden;transition:transform .28s cubic-bezier(.4,0,.2,1),visibility 0s linear .28s}
+.nav-panel.open{visibility:visible;transition:transform .28s cubic-bezier(.4,0,.2,1),visibility 0s 0s}
 </style>
 </head>
 <body>
